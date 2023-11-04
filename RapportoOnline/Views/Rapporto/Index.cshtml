@@ -1,0 +1,71 @@
+﻿@model RapportoOnline.Models.AnagraficaModel;
+
+<h1>
+    Inseirsci i dati richiesti 
+
+</h1>
+
+@if (Model.success == false )
+{
+    <p>@Model.message</p>
+}
+
+<form asp-controller="Rapporto" asp-action="SalvaRapporto" method="post" class="form-control">
+
+    <label>Nome</label>
+    <input asp-for="Name" type="text" class="form-control"/>
+    <br />
+    <label>Cognome</label>
+    <input asp-for="Surname" type="text" class="form-control" />
+    <br />
+    <label>Hai svolto una forma di servizio nel mese passato?</label>
+    <label>
+        <input asp-for="Servizio" type="radio" value="true" class="form-check-label" />
+        Si
+    </label>
+    <label>
+        <input asp-for="Servizio" type="radio" value="false" class="form-check-label" />
+        No
+    </label>
+    <br />
+    <br />
+    <label>Sei stato pioniere nel mese passato?</label>
+    <label>
+        <input asp-for="Pioniere" type="radio" value="true" class="form-check-label" onclick=" document.getElementById('H').style.display= 'block' " />
+        Si
+    </label>
+    <label>
+        <input asp-for="Pioniere" type="radio" value="false" class="form-check-label" onclick="document.getElementById('H').style.display = 'none' " />
+        No
+    </label>
+    <br />
+    <br />
+    <div id="H" style="display:none">
+        
+        <label>Inserisci le ore fatte nel mese passato</label>
+        <input asp-for="Ore"  class="form-control" />
+
+    </div>
+    <label>Hai avuto dei studi nel mese passato?</label>
+    <label>
+        <input asp-for="Studi" type="radio" value="true" class="form-check-label" onclick=" document.getElementById('E').style.display= 'block' " />
+        Si
+    </label>
+    <label>
+        <input asp-for="Studi" type="radio" value="false" class="form-check-label" onclick="document.getElementById('E').style.display = 'none' " />
+        No
+    </label>
+    <br />
+    <br />
+    <div id="E" style="display:none">
+
+        <label>Inserisci gli studi fatti nel mese passato</label>
+        <input asp-for="St" class="form-control" />
+
+    </div>
+
+    <button class="btn btn-outline-primary" type="submit">Invia modulo</button>
+    
+</form>
+
+
