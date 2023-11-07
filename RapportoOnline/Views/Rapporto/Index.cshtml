@@ -20,15 +20,16 @@
     <br />
     <label>Hai svolto una forma di servizio nel mese passato?</label>
     <label>
-        <input asp-for="Servizio" type="radio" value="true" class="form-check-label" />
+        <input asp-for="Servizio" type="radio" value="true" class="form-check-label" onclick=" document.getElementById('F').style.display= 'block' " />
         Si
     </label>
     <label>
-        <input asp-for="Servizio" type="radio" value="false" class="form-check-label" />
+        <input asp-for="Servizio" type="radio" value="false" class="form-check-label" onclick="document.getElementById('F').style.display = 'none' " />
         No
     </label>
     <br />
     <br />
+    <div id="F" style="display:none">
     <label>Sei stato pioniere nel mese passato?</label>
     <label>
         <input asp-for="Pioniere" type="radio" value="true" class="form-check-label" onclick=" document.getElementById('H').style.display= 'block' " />
@@ -62,6 +63,7 @@
         <label>Inserisci gli studi fatti nel mese passato</label>
         <input asp-for="St" class="form-control" />
 
+    </div>
     </div>
 
     <button class="btn btn-outline-primary" type="submit">Invia modulo</button>

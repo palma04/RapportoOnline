@@ -24,8 +24,31 @@ namespace RapportoOnline.Controllers
             AnagraficaModel anagrafica = anagraficaModel;
             try
             {
-                if(anagrafica.Name != null && anagrafica.Surname != null && anagrafica.Servizio != null && anagrafica.Pioniere != null && anagrafica.Studi != null)
+                if(anagrafica.Name != null && anagrafica.Surname != null && anagrafica.Servizio != null )
                 {
+                    if(anagrafica.Servizio == true)
+                    {
+                        if (anagrafica.Pioniere == true)
+                        {
+                            if(anagrafica.Ore == null)
+                            {
+                                anagrafica.success = false;
+                                anagrafica.message = "Inserisci tutti i dati richiesti";
+                                return View("index", anagrafica);
+
+                            }
+                        }
+                        if(anagrafica.Servizio == true)
+                        {
+                            if (anagrafica.St == null)
+                            {
+                                anagrafica.success = false;
+                                anagrafica.message = "Inserisci tutti i dati richiesti";
+                                return View("index", anagrafica);
+
+                            }
+                        }
+                    }
 
                 }
                 else
